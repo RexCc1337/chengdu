@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#0b100d">
+  <meta name="description" content="成都城市指南：天府之国、熊猫故乡、世界美食之都。用一页网页，走进成都的街巷、风味与慢生活。">
+  <title>成都 · 一座来了就不想走的城市</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='10' fill='%23b6402a'/%3E%3Ctext x='32' y='44' font-size='38' text-anchor='middle' fill='%23f3eee4' font-family='serif'%3E蓉%3C/text%3E%3C/svg%3E">
+  <link rel="preload" as="image" href="assets/poster.jpg">
+  <link rel="stylesheet" href="css/style.css">
+  <script>document.documentElement.classList.add('js');</script>
+  <noscript><style>.loader{display:none!important}body{overflow:auto!important}.hero__char{transform:none!important}.hero__content,.hero__side,.hero__bottom,.hero__sub-row,.hero__tags,.hero__seal{opacity:1!important;transform:none!important}[data-reveal]{opacity:1!important;transform:none!important}.cinema__cover,.cinema__trigger{display:none!important}</style></noscript>
+</head>
+<body class="is-loading">
+  <a class="skip-link" href="#main">跳至主要内容</a>
+
+  <!-- Loading -->
+  <div class="loader" id="loader" aria-hidden="true">
+    <div class="loader__inner">
+      <div class="loader__seal">蓉</div>
+      <p class="loader__city">CHENGDU</p>
+      <div class="loader__line"><span id="loaderBar"></span></div>
+      <div class="loader__row">
+        <span class="loader__hint">天府之国 · 熊猫故乡</span>
+        <span class="loader__count"><b id="loaderCount">0</b><sup>%</sup></span>
+      </div>
+    </div>
+    <div class="loader__curtain"></div>
+  </div>
+
+  <div class="grain" aria-hidden="true"></div>
+  <div class="cursor-dot" aria-hidden="true"></div>
+  <div class="cursor-ring" aria-hidden="true"></div>
+
+  <!-- Header -->
+  <header class="site-header" id="siteHeader">
+    <a class="brand" href="#top" aria-label="成都城市指南，返回顶部">
+      <span class="brand__seal">蓉</span>
+      <span class="brand__text"><b>CHENGDU</b><small>成都 · 天府之国</small></span>
+    </a>
+
+    <nav class="nav" aria-label="主导航">
+      <a href="#about" class="nav__link" data-nav><span>01</span>城市印象</a>
+      <a href="#landmarks" class="nav__link" data-nav><span>02</span>城市地标</a>
+      <a href="#flavor" class="nav__link" data-nav><span>03</span>人间风味</a>
+      <a href="#life" class="nav__link" data-nav><span>04</span>成都生活</a>
+      <a href="#journey" class="nav__link" data-nav><span>05</span>行程灵感</a>
+      <a href="#guide" class="nav__link" data-nav><span>06</span>实用指南</a>
+    </nav>
+
+    <div class="header__actions">
+      <button class="music-btn" id="musicBtn" type="button" data-audio-toggle aria-pressed="false" aria-label="播放城市音乐：蔡琴《明月几时有》">
+        <span class="music-btn__bars" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+        <span class="music-btn__text">夜听</span>
+      </button>
+      <a class="film-link" href="#cinema" data-play-film aria-label="观看城市影像">
+        <span class="film-link__icon" aria-hidden="true">▶</span>
+        <span class="film-link__text">城市影像</span>
+      </a>
+      <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="mobileMenu" aria-label="打开菜单">
+        <span class="menu-btn__label">菜单</span>
+        <span class="menu-btn__icon" aria-hidden="true"><i></i><i></i></span>
+      </button>
+    </div>
+    <span class="scroll-progress" aria-hidden="true"><i id="scrollBar"></i></span>
+  </header>
+
+  <!-- Mobile menu -->
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <div class="mobile-menu__bg" aria-hidden="true"><span>蓉</span></div>
+    <nav class="mobile-menu__nav" aria-label="移动端导航">
+      <a href="#about" data-mobile-link><span>01</span>城市印象<small>IMPRESSION</small></a>
+      <a href="#landmarks" data-mobile-link><span>02</span>城市地标<small>LANDMARKS</small></a>
+      <a href="#flavor" data-mobile-link><span>03</span>人间风味<small>FLAVOR</small></a>
+      <a href="#life" data-mobile-link><span>04</span>成都生活<small>LIFESTYLE</small></a>
+      <a href="#journey" data-mobile-link><span>05</span>行程灵感<small>JOURNEY</small></a>
+      <a href="#guide" data-mobile-link><span>06</span>实用指南<small>GUIDE</small></a>
+    </nav>
+    <div class="mobile-menu__foot">
+      <span>30.67°N · 104.06°E</span>
+      <span>天府之国 · 熊猫故乡</span>
+    </div>
+  </div>
+
+  <main id="main">
+    <!-- Hero -->
+    <section class="hero" id="top">
+      <div class="hero__media" data-parallax="0.18">
+        <img class="hero__image" src="assets/poster.jpg" alt="成都国际金融中心楼顶的大熊猫雕塑与城市天际线" fetchpriority="high">
+      </div>
+      <canvas class="hero__canvas" id="heroCanvas" aria-hidden="true"></canvas>
+      <div class="hero__scrim" aria-hidden="true"></div>
+      <div class="hero__vignette" aria-hidden="true"></div>
+      <div class="hero__grain" aria-hidden="true"></div>
+
+      <div class="hero__topline">
+        <span>30.67°N · 104.06°E</span>
+        <span class="hero__topline-mid"><i></i>城市影像 / 05:34</span>
+        <span>EST. 2300+ YEARS</span>
+      </div>
+
+      <div class="hero__content">
+        <p class="hero__eyebrow"><span class="hero__eyebrow-line"></span>CHENGDU · SICHUAN · CHINA</p>
+        <h1 class="hero__title" aria-label="成都">
+          <span class="hero__title-row">
+            <span class="hero__char-mask"><span class="hero__char">成</span></span>
+            <span class="hero__char-mask"><span class="hero__char">都</span></span>
+          </span>
+          <span class="hero__seal" aria-hidden="true"><span>蓉</span><small>CHENGDU</small></span>
+        </h1>
+        <div class="hero__sub-row">
+          <p class="hero__sub">一座来了，就<em>不想走</em>的城市</p>
+          <span class="hero__sub-line" aria-hidden="true"></span>
+          <p class="hero__sub-en">A CITY YOU'LL NEVER WANT TO LEAVE</p>
+        </div>
+        <ul class="hero__tags" aria-label="成都城市名片">
+          <li>世界美食之都</li>
+          <li>大熊猫故乡</li>
+          <li>公园城市</li>
+        </ul>
+      </div>
+
+      <div class="hero__side">
+        <div class="hero__side-text">天府之国 · 熊猫故乡</div>
+        <div class="hero__compass" aria-hidden="true">
+          <svg viewBox="0 0 120 120">
+            <defs><path id="heroRingPath" d="M60,60 m-44,0 a44,44 0 1,1 88,0 a44,44 0 1,1 -88,0"/></defs>
+            <text><textPath href="#heroRingPath">CHENGDU · SICHUAN · CHINA · 成都 · </textPath></text>
+            <circle cx="60" cy="60" r="3"></circle>
+            <path d="M60 24v8M60 88v8M24 60h8M88 60h8" class="compass-tick"></path>
+          </svg>
+        </div>
+      </div>
+
+      <div class="hero__bottom">
+        <div class="hero__meta">
+          <div class="hero__meta-item"><span>01</span><p>熊猫故乡<small>HOME OF PANDAS</small></p></div>
+          <div class="hero__meta-item"><span>02</span><p>美食之都<small>CITY OF GASTRONOMY</small></p></div>
+          <div class="hero__meta-item"><span>03</span><p>公园城市<small>PARK CITY</small></p></div>
+        </div>
+        <div class="hero__watch-wrap">
+          <a class="watch-btn magnetic" href="#cinema" data-play-film aria-label="观看城市影像">
+            <span class="watch-btn__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z"/></svg></span>
+            <span class="watch-btn__text"><b>观看城市影像</b><small>WATCH THE FILM</small></span>
+          </a>
+          <a class="scroll-cue" href="#about" aria-label="向下探索">
+            <span>向下探索</span>
+            <i aria-hidden="true"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="hero__edge" aria-hidden="true"><span>SCROLL TO EXPLORE</span></div>
+    </section>
+
+    <!-- Marquee -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track">
+        <div class="marquee__group">
+          <span>天府之国</span><i>✦</i><span>熊猫故乡</span><i>✦</i><span>世界美食之都</span><i>✦</i><span>公园城市</span><i>✦</i><span>锦官城</span><i>✦</i><span>蓉城</span><i>✦</i>
+        </div>
+        <div class="marquee__group">
+          <span>天府之国</span><i>✦</i><span>熊猫故乡</span><i>✦</i><span>世界美食之都</span><i>✦</i><span>公园城市</span><i>✦</i><span>锦官城</span><i>✦</i><span>蓉城</span><i>✦</i>
+        </div>
+      </div>
+    </div>
+
+    <!-- 01 About -->
+    <section class="section about" id="about">
+      <div class="container">
+        <header class="section-head">
+          <p class="kicker" data-reveal><span>01</span><i></i>城市印象<small>IMPRESSION</small></p>
+          <h2 class="section-title" data-reveal style="--delay:.08s">九天开出一成都<br><em>万户千门入画图</em></h2>
+          <p class="section-note" data-reveal style="--delay:.16s">从金沙的太阳神鸟，到太古里的玻璃幕墙。两千余年城址未移，烟火未断。</p>
+        </header>
+
+        <div class="about__grid">
+          <div class="about__visual" data-reveal>
+            <div class="about__frame">
+              <div class="about__photo">
+                <img src="assets/poster.jpg" alt="成都国际金融中心楼顶的大熊猫雕塑与城市天际线" loading="lazy">
+              </div>
+              <svg class="about__ring" viewBox="0 0 400 400" aria-hidden="true">
+                <defs><path id="aboutRingPath" d="M200,200 m-176,0 a176,176 0 1,1 352,0 a176,176 0 1,1 -352,0"/></defs>
+                <text><textPath href="#aboutRingPath">CHENGDU · PARK CITY · TIANFU COUNTRY · 成都 · </textPath></text>
+              </svg>
+              <span class="about__frame-label">30°40′N<br>104°04′E</span>
+              <span class="about__frame-dot" aria-hidden="true"></span>
+            </div>
+            <p class="about__caption"><span>城市坐标</span> 成都 · 中国四川省</p>
+          </div>
+
+          <div class="about__body">
+            <p class="about__lead" data-reveal>成都，是一座<em>不需要用力介绍</em>的城市。它的好，藏在清晨第一碗面里，藏在茶馆竹椅的吱呀声里，也藏在每一个不慌不忙的傍晚。</p>
+            <div class="about__copy">
+              <p data-reveal style="--delay:.06s">作为四川省省会，成都坐落在沃野千里的成都平原。自公元前五世纪开明王朝建都起，城址两千余年未曾迁移，“天府之国”由此得名。</p>
+              <p data-reveal style="--delay:.12s">今天的成都，一边是 IFS 楼顶的熊猫与彻夜不熄的灯火，一边是青城山中的雾与都江堰的水。快与慢、新与旧，在这里从不冲突。</p>
+            </div>
+
+            <div class="stats" data-reveal style="--delay:.1s">
+              <div class="stat"><strong><span data-count="2300">2300</span><sup>+</sup></strong><p>年建城史<small>YEARS OF HISTORY</small></p></div>
+              <div class="stat"><strong><span data-count="2100">2100</span><sup>万+</sup></strong><p>常住人口<small>RESIDENTS</small></p></div>
+              <div class="stat"><strong><span data-count="100">100</span><sup>+</sup></strong><p>座博物馆<small>MUSEUMS</small></p></div>
+              <div class="stat"><strong><span data-count="2">2</span><sup>座</sup></strong><p>国际机场<small>AIRPORTS</small></p></div>
+            </div>
+
+            <div class="about__facts" data-reveal style="--delay:.16s">
+              <span>世界美食之都</span>
+              <span>国家历史文化名城</span>
+              <span>公园城市示范区</span>
+            </div>
+          </div>
+        </div>
+
+        <blockquote class="pull-quote" data-reveal>
+          <span class="pull-quote__mark" aria-hidden="true">“</span>
+          <p>成都，是一座把时间<em>煮进茶里</em>的城市。</p>
+          <cite>— 城市手记</cite>
+        </blockquote>
+      </div>
+    </section>
+
+    <!-- Film -->
+    <section class="cinema" id="cinema" aria-label="城市影像">
+      <div class="container">
+        <header class="cinema__head">
+          <p class="kicker kicker--light" data-reveal><span>FILM</span><i></i>城市影像<small>05:34</small></p>
+          <h2 class="cinema__title" data-reveal style="--delay:.08s">看见成都<br><em>不止一面</em></h2>
+          <p class="cinema__intro" data-reveal style="--delay:.16s">从宽窄巷子的清晨，到九眼桥的夜色。五分钟，走进一座立体的成都。</p>
+        </header>
+
+        <div class="cinema__frame" id="cinemaFrame" data-reveal>
+          <video id="cityFilm" class="cinema__video" poster="assets/still-city.jpg" preload="metadata" playsinline aria-label="成都城市影像纪录片，时长 5 分 34 秒">
+            <source src="cd1.mp4" type="video/mp4">
+            你的浏览器不支持 HTML5 视频，请直接打开同目录下的 cd1.mp4。
+          </video>
+          <div class="cinema__cover" aria-hidden="true">
+            <span class="cinema__cover-scrim"></span>
+            <span class="cinema__play"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z"/></svg></span>
+            <span class="cinema__cover-label"><b>城市影像 · 成都</b><small>CHENGDU / A CITY IN MOTION</small></span>
+            <span class="cinema__cover-time">05:34</span>
+            <span class="cinema__cover-hint">点击播放 · 本地影像 cd1.mp4</span>
+          </div>
+          <button class="cinema__trigger" id="cinemaPlay" type="button" aria-label="播放城市影像，时长 5 分 34 秒"></button>
+        </div>
+        <noscript><p style="margin-top:12px;font-size:10px;color:rgba(243,238,228,.55)"><a href="cd1.mp4" style="text-decoration:underline">打开本地影像 cd1.mp4</a></p></noscript>
+
+        <div class="cinema__foot" data-reveal>
+          <span>宽窄巷子 · 熊猫基地 · 锦江夜色 · 城市天际线</span>
+          <span>本地影像素材 / cd1.mp4</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 02 Landmarks -->
+    <section class="section landmarks" id="landmarks">
+      <div class="container">
+        <header class="section-head section-head--dark">
+          <p class="kicker" data-reveal><span>02</span><i></i>城市地标<small>LANDMARKS</small></p>
+          <h2 class="section-title" data-reveal style="--delay:.08s">一城烟火<br><em>半城山水</em></h2>
+          <p class="section-note" data-reveal style="--delay:.16s">山水与市井只隔一站地铁。在成都，远方和日常可以同一天抵达。</p>
+        </header>
+      </div>
+
+      <div class="landmarks__rail-wrap">
+        <div class="landmarks__rail" id="landmarkRail" tabindex="0" aria-label="成都地标横向画廊，可拖动或使用左右方向键浏览">
+          <article class="place">
+            <div class="place__art">
+              <svg viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+                <defs>
+                  <linearGradient id="kuanSky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1d2b25"/><stop offset="1" stop-color="#0b110e"/></linearGradient>
+                  <linearGradient id="kuanRoof" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#24312a"/><stop offset="1" stop-color="#0b110e"/></linearGradient>
+                  <radialGradient id="kuanGlow"><stop offset="0" stop-color="#e0bb78" stop-opacity=".9"/><stop offset="1" stop-color="#e0bb78" stop-opacity="0"/></radialGradient>
+                </defs>
+                <rect width="400" height="500" fill="url(#kuanSky)"/>
+                <circle cx="302" cy="108" r="52" fill="#d9bd83" opacity=".9"/>
+                <circle cx="302" cy="108" r="80" fill="url(#kuanGlow)" opacity=".45"/>
+                <path d="M0 322l84-56 76 42 74-52 86 50 80-36v150H0z" fill="#0d1511" opacity=".85"/>
+                <path d="M-20 500V150l118-30 44 44-24 336z" fill="url(#kuanRoof)"/>
+                <path d="M118 120l18 14 26-14-8 24-16 4-20 226h-8z" fill="#36463c" opacity=".55"/>
+                <path d="M96 268h92l6 16H88z" fill="#dfc08b" opacity=".18"/>
+                <path d="M40 316h140v184H40z" fill="#111a14"/>
+                <path d="M106 356h48v84h-48z" fill="#c85b3c" opacity=".7"/>
+                <path d="M130 356v84M106 396h48" stroke="#f0d9ae" stroke-width="2" opacity=".35"/>
+                <circle cx="204" cy="228" r="5" fill="#d45535"/>
+                <circle cx="204" cy="228" r="16" fill="url(#kuanGlow)"/>
+                <path d="M204 210v-34M184 178h40" stroke="#b7a06e" stroke-width="1" opacity=".5"/>
+                <path d="M246 500V228l62-18 92 36v254z" fill="#0d1511"/>
+                <path d="M232 500V290l54-18 114 44v184z" fill="#17221b"/>
+                <path d="M286 302h70v86h-70z" fill="#2b3a30" opacity=".8"/>
+                <path d="M308 302v86M338 302v86" stroke="#d6c18e" stroke-width="1.4" opacity=".22"/>
+                <path d="M0 478h400" stroke="#d6c18e" stroke-width="1" opacity=".18"/>
+              </svg>
+              <span class="place__badge">01</span>
+              <span class="place__en">KUANZHAI ALLEY</span>
+            </div>
+            <div class="place__body">
+              <div class="place__meta"><span>青羊区</span><span>清代街巷</span></div>
+              <h3>宽窄巷子</h3>
+              <p>青黛砖瓦的清代街巷。宽巷子的闲、窄巷子的静、井巷子的烟火，一步一景。</p>
+              <span class="place__tag">老成都的街巷肌理</span>
+            </div>
+          </article>
+
+          <article class="place">
+            <div class="place__art">
+              <svg viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+                <defs>
+                  <linearGradient id="jinSky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2a1512"/><stop offset="1" stop-color="#100908"/></linearGradient>
+                  <radialGradient id="jinGlow"><stop offset="0" stop-color="#ef6a42" stop-opacity=".9"/><stop offset="1" stop-color="#ef6a42" stop-opacity="0"/></radialGradient>
+                </defs>
+                <rect width="400" height="500" fill="url(#jinSky)"/>
+                <path d="M0 160q100-90 200 0t200 0" fill="none" stroke="#1a0d0a" stroke-width="42"/>
+                <path d="M0 188q100-80 200 0t200 0" fill="none" stroke="#371712" stroke-width="10"/>
+                <path d="M-20 250h440" stroke="#491e16" stroke-width="2" opacity=".8"/>
+                <g fill="#f4c07b" opacity=".86">
+                  <circle cx="48" cy="238" r="4"/><circle cx="110" cy="264" r="4"/><circle cx="172" cy="238" r="4"/><circle cx="234" cy="264" r="4"/><circle cx="296" cy="238" r="4"/><circle cx="358" cy="264" r="4"/>
+                </g>
+                <g>
+                  <path d="M42 268h30l8 22H34z" fill="#3b1712"/><path d="M52 290h24v74H52z" fill="#a83224"/><circle cx="64" cy="318" r="34" fill="url(#jinGlow)"/><ellipse cx="64" cy="318" rx="18" ry="28" fill="#f19a62"/><path d="M64 292v52" stroke="#7c2418" stroke-width="2"/>
+                  <g transform="translate(300 300)"><path d="M-18 0h36l10 24h-56z" fill="#3b1712"/><path d="M-10 24h20v66h-20z" fill="#a83224"/><circle cx="0" cy="68" r="30" fill="url(#jinGlow)"/><ellipse cx="0" cy="68" rx="16" ry="24" fill="#f19a62"/></g>
+                </g>
+                <path d="M0 386l86-30 94 30 98-30 122 34v110H0z" fill="#0a0706"/>
+                <path d="M0 404c74 0 74 34 148 34s74-34 148-34 74 34 104 34v62H0z" fill="#150c0a"/>
+                <path d="M46 430h308" stroke="#7c2f20" stroke-width="1.5" opacity=".5"/>
+                <g stroke="#c5492e" stroke-width="1" opacity=".35"><path d="M80 430v42M150 430v42M220 430v42M290 430v42"/></g>
+              </svg>
+              <span class="place__badge">02</span>
+              <span class="place__en">JINLI STREET</span>
+            </div>
+            <div class="place__body">
+              <div class="place__meta"><span>武侯区</span><span>三国风物</span></div>
+              <h3>锦里</h3>
+              <p>灯笼亮起的夜晚，三国故事与川西民居在一条街上重逢。糖画、皮影、盖碗茶，都是旧时光。</p>
+              <span class="place__tag">越夜越成都</span>
+            </div>
+          </article>
+
+          <article class="place">
+            <div class="place__art">
+              <svg viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+                <defs>
+                  <linearGradient id="wuSky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#18251e"/><stop offset="1" stop-color="#080d0a"/></linearGradient>
+                  <linearGradient id="wuWall" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#a33a2a"/><stop offset="1" stop-color="#6d241a"/></linearGradient>
+                </defs>
+                <rect width="400" height="500" fill="url(#wuSky)"/>
+                <circle cx="318" cy="96" r="42" fill="#d9cda9" opacity=".7"/>
+                <path d="M0 300h400v200H0z" fill="url(#wuWall)"/>
+                <path d="M0 300h400" stroke="#d3b07a" stroke-width="3" opacity=".45"/>
+                <path d="M0 250l76-34 60 28 62-28 64 28 68-28 70 32v32H0z" fill="#0d1511"/>
+                <path d="M0 272h400" stroke="#b49564" stroke-width="2" opacity=".4"/>
+                <path d="M0 300h400v9H0z" fill="#d8b37c" opacity=".18"/>
+                <g stroke="#55704c" stroke-width="4" opacity=".85">
+                  <path d="M68 500V206M164 500V176M286 500V196M350 500V218"/>
+                </g>
+                <g fill="#8fa47b" opacity=".8">
+                  <path d="M68 258q-46-20-58-52 40 6 58 40zM68 300q44-22 58-58-42 4-58 44zM164 236q-50-16-66-52 46 2 66 40zM164 292q44-26 56-64-40 8-56 48zM286 252q-48-18-62-56 44 4 62 42zM286 312q42-22 54-58-38 6-54 44zM350 270q-40-14-54-44 36 4 54 34z"/>
+                </g>
+                <path d="M0 388h400" stroke="#d3b07a" stroke-width="1" opacity=".2"/>
+                <path d="M128 344h32v56h-32zM214 344h32v56h-32z" fill="#4b1913" opacity=".6"/>
+                <g fill="#e6c48b" opacity=".55"><circle cx="116" cy="360" r="4"/><circle cx="268" cy="382" r="4"/></g>
+                <path d="M0 464h400" stroke="#1c0d0a" stroke-width="18" opacity=".6"/>
+              </svg>
+              <span class="place__badge">03</span>
+              <span class="place__en">WUHOU SHRINE</span>
+            </div>
+            <div class="place__body">
+              <div class="place__meta"><span>武侯区</span><span>三国遗迹</span></div>
+              <h3>武侯祠</h3>
+              <p>红墙夹道，竹影婆娑。中国唯一的君臣合祀祠庙，纪念刘备与诸葛亮，也纪念一段英雄时代。</p>
+              <span class="place__tag">红墙竹影</span>
+            </div>
+          </article>
+
+          <article class="place">
+            <div class="place__art">
+              <svg viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+                <defs>
+                  <linearGradient id="duSky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2b3831"/><stop offset="1" stop-color="#0b100d"/></linearGradient>
+                  <linearGradient id="duMist" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#d8cfb7" stop-opacity="0"/><stop offset=".5" stop-color="#d8cfb7" stop-opacity=".35"/><stop offset="1" stop-color="#d8cfb7" stop-opacity="0"/></linearGradient>
+                </defs>
+                <rect width="400" height="500" fill="url(#duSky)"/>
+                <circle cx="96" cy="104" r="38" fill="#e3d5b4" opacity=".55"/>
+                <rect y="238" width="400" height="26" fill="url(#duMist)"/>
+                <rect y="310" width="400" height="18" fill="url(#duMist)" opacity=".7"/>
+                <path d="M0 396l70-54 58 26 48-68 60 58 52-28 60 52 52-22v140H0z" fill="#111a15"/>
+                <path d="M0 430l64-34 62 22 58-34 54 30 70-26 92 30v112H0z" fill="#0a0f0c"/>
+                <path d="M176 500V346l40-26 14 22v158z" fill="#3c3224"/>
+                <path d="M130 352l84-62 88 62z" fill="#6e5a3e"/>
+                <path d="M124 360l92-66 96 66z" fill="#8a724d" opacity=".4"/>
+                <path d="M220 346v50" stroke="#1b1410" stroke-width="4"/>
+                <path d="M186 414h64" stroke="#d3b57e" stroke-width="1" opacity=".35"/>
+                <g stroke="#5e7c58" stroke-width="3" opacity=".8">
+                  <path d="M46 500V260M330 500V238M370 500V282"/>
+                </g>
+                <g fill="#7f9a71" opacity=".75">
+                  <path d="M46 310q-36-12-48-38 32 2 48 26zM46 348q34-16 44-44-30 4-44 30zM330 284q-40-14-52-44 36 2 52 30zM330 330q38-18 48-48-32 4-48 32z"/>
+                </g>
+                <path d="M0 470h400" stroke="#c6b892" stroke-width="1" opacity=".18"/>
+              </svg>
+              <span class="place__badge">04</span>
+              <span class="place__en">DUFU COTTAGE</span>
+            </div>
+            <div class="place__body">
+              <div class="place__meta"><span>青羊区</span><span>诗圣故居</span></div>
+              <h3>杜甫草堂</h3>
+              <p>竹树掩映的茅屋，是诗圣流寓成都的居所。“窗含西岭千秋雪”，写的就是这里的一段日常。</p>
+              <span class="place__tag">诗意栖居</span>
+            </div>
+          </article>
+
+          <article class="place">
+            <div class="place__art">
+              <svg viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+                <defs>
+                  <linearGradient id="taiSky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#335364"/><stop offset=".6" stop-color="#7a9aa5"/><stop offset="1" stop-color="#d7d9cc"/></linearGradient>
+                  <linearGradient id="taiGlass" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8bb0bb"/><stop offset="1" stop-color="#345663"/></linearGradient>
+                  <linearGradient id="taiGlass2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#c2cbbf"/><stop offset="1" stop-color="#6d8b8f"/></linearGradient>
+                </defs>
+                <rect width="400" height="500" fill="url(#taiSky)"/>
+                <g fill="#eef0e4" opacity=".55"><ellipse cx="90" cy="120" rx="58" ry="18"/><ellipse cx="300" cy="78" rx="72" ry="20"/><ellipse cx="210" cy="176" rx="46" ry="12"/></g>
+                <path d="M22 500V244h76v256z" fill="url(#taiGlass)"/>
+                <path d="M70 500V168h58v332z" fill="url(#taiGlass2)"/>
+                <path d="M208 500V214h72v286z" fill="url(#taiGlass2)"/>
+                <path d="M208 500V280h72" fill="none"/>
+                <g stroke="#e9efe9" stroke-width="1" opacity=".35">
+                  <path d="M22 280h76M22 320h76M22 360h76M22 400h76M22 440h76M22 480h76"/>
+                  <path d="M70 200h58M70 240h58M70 280h58M70 320h58M70 360h58M70 400h58M70 440h58M70 480h58"/>
+                  <path d="M208 250h72M208 290h72M208 330h72M208 370h72M208 410h72M208 450h72"/>
+                </g>
+                <path d="M300 500V130h86v370z" fill="#283a3d"/>
+                <path d="M300 130l86 0-22-32-64 0z" fill="#1c2a2c"/>
+                <g stroke="#a5b8b4" stroke-width="1" opacity=".4"><path d="M330 130v370M362 130v370"/></g>
+                <path d="M266 390c-14-40 4-86 34-98 22-8 34 10 38 34 8 36-6 66-22 78-20 14-40 6-50-14z" fill="#0d1211"/>
+                <circle cx="314" cy="300" r="34" fill="#f2f0e6"/>
+                <circle cx="300" cy="298" r="10" fill="#0d1211"/>
+                <circle cx="330" cy="298" r="10" fill="#0d1211"/>
+                <circle cx="300" cy="299" r="3.5" fill="#f2f0e6"/>
+                <circle cx="330" cy="299" r="3.5" fill="#f2f0e6"/>
+                <path d="M308 312q6 6 12 0" stroke="#0d1211" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+                <path d="M338 306q22 12 14 38-8 24-28 18" fill="#0d1211"/>
+                <path d="M292 358q20 16 44 0" stroke="#f2f0e6" stroke-width="1.4" opacity=".4" fill="none"/>
+                <path d="M0 474h400" stroke="#1c2a2c" stroke-width="2" opacity=".2"/>
+              </svg>
+              <span class="place__badge">05</span>
+              <span class="place__en">TAIKOO LI</span>
+            </div>
+            <div class="place__body">
+              <div class="place__meta"><span>锦江区</span><span>潮流地标</span></div>
+              <h3>春熙路 · 太古里</h3>
+              <p>玻璃幕墙与青瓦坡屋顶比邻，IFS 楼顶的熊猫探出半个身子，是这座城市最萌的坐标。</p>
+              <span class="place__tag">新旧同框</span>
+            </div>
+          </article>
+
+          <article class="place">
+            <div class="place__art">
+              <svg viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+                <defs>
+                  <linearGradient id="panSky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#203025"/><stop offset="1" stop-color="#0b120d"/></linearGradient>
+                  <linearGradient id="panFog" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#b9c8ad" stop-opacity="0"/><stop offset=".5" stop-color="#b9c8ad" stop-opacity=".3"/><stop offset="1" stop-color="#b9c8ad" stop-opacity="0"/></linearGradient>
+                </defs>
+                <rect width="400" height="500" fill="url(#panSky)"/>
+                <rect y="190" width="400" height="26" fill="url(#panFog)"/>
+                <rect y="302" width="400" height="16" fill="url(#panFog)" opacity=".8"/>
+                <g stroke="#68815c" stroke-width="7" opacity=".8"><path d="M38 500V96M104 500V142M352 500V110M300 500V176"/></g>
+                <g stroke="#8ba879" stroke-width="3" opacity=".7"><path d="M104 500V60M352 500V58"/></g>
+                <g fill="#8ea87c" opacity=".85">
+                  <path d="M38 190q-54-22-70-64 50 6 70 46zM38 250q48-24 64-64-46 6-64 48zM104 236q-56-20-72-58 52 4 72 42zM104 312q50-26 66-66-48 8-66 50zM352 214q-58-20-76-62 54 4 76 44zM352 294q50-22 64-62-46 6-64 46zM300 260q-46-18-62-52 42 4 62 36zM300 340q44-20 56-54-40 4-56 38z"/>
+                </g>
+                <path d="M0 438c52-10 92 8 142 4 56-4 92-22 148-12 40 8 74 8 110-2v72H0z" fill="#0a0f0b"/>
+                <ellipse cx="208" cy="404" rx="76" ry="54" fill="#f1eee2"/>
+                <circle cx="202" cy="336" r="52" fill="#f1eee2"/>
+                <ellipse cx="174" cy="326" rx="17" ry="21" fill="#111510" transform="rotate(-18 174 326)"/>
+                <ellipse cx="230" cy="326" rx="17" ry="21" fill="#111510" transform="rotate(18 230 326)"/>
+                <circle cx="186" cy="344" r="6" fill="#111510"/>
+                <circle cx="218" cy="344" r="6" fill="#111510"/>
+                <ellipse cx="202" cy="360" rx="9" ry="6" fill="#111510"/>
+                <path d="M194 368q8 7 16 0" stroke="#111510" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+                <path d="M152 396q-18 18-18 44 0 14 14 14h20M264 396q18 18 18 44 0 14-14 14h-20" fill="none" stroke="#111510" stroke-width="18" stroke-linecap="round"/>
+                <path d="M174 438q34 18 68 0" stroke="#111510" stroke-width="3" opacity=".2" fill="none"/>
+                <path d="M0 460h400" stroke="#c6d2b9" stroke-width="1" opacity=".16"/>
+              </svg>
+              <span class="place__badge">06</span>
+              <span class="place__en">PANDA BASE</span>
+            </div>
+            <div class="place__body">
+              <div class="place__meta"><span>成华区</span><span>熊猫故乡</span></div>
+              <h3>大熊猫基地</h3>
+              <p>清晨的竹林里，团子们吃笋、打滚、爬树，把“慢”过成了一种生活哲学。看熊猫，请赶早。</p>
+              <span class="place__tag">和团子说早安</span>
+            </div>
+          </article>
+
+          <article class="place">
+            <div class="place__art">
+              <svg viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+                <defs>
+                  <linearGradient id="dujiangSky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#22333a"/><stop offset="1" stop-color="#0a1012"/></linearGradient>
+                  <linearGradient id="river" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#476c72"/><stop offset=".5" stop-color="#8eaaa8"/><stop offset="1" stop-color="#3f6268"/></linearGradient>
+                  <linearGradient id="dujiangMist" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#c6d3cf" stop-opacity="0"/><stop offset=".5" stop-color="#c6d3cf" stop-opacity=".35"/><stop offset="1" stop-color="#c6d3cf" stop-opacity="0"/></linearGradient>
+                </defs>
+                <rect width="400" height="500" fill="url(#dujiangSky)"/>
+                <circle cx="292" cy="90" r="34" fill="#e2d4b2" opacity=".55"/>
+                <path d="M0 340l88-120 68 62 58-92 78 118 58-58 50 56v194H0z" fill="#172823"/>
+                <path d="M0 380l92-96 64 52 62-74 68 92 62-48 52 48v146H0z" fill="#0e1916"/>
+                <rect y="240" width="400" height="22" fill="url(#dujiangMist)"/>
+                <rect y="304" width="400" height="14" fill="url(#dujiangMist)" opacity=".7"/>
+                <path d="M-30 500l130-188 82 0 34 40-140 148z" fill="url(#river)" opacity=".9"/>
+                <path d="M400 500l-92-188-72 0-24 34 110 154z" fill="url(#river)" opacity=".7"/>
+                <path d="M188 352l44 0 24 32-92 0z" fill="#6e7f72"/>
+                <path d="M148 432h104M132 470h136" stroke="#d9d6c3" stroke-width="2" opacity=".35"/>
+                <path d="M126 352l-12 148M262 352l16 148" stroke="#d9d6c3" stroke-width="1" opacity=".25"/>
+                <path d="M0 500h400" stroke="#c6d3cf" stroke-width="1" opacity=".16"/>
+              </svg>
+              <span class="place__badge">07</span>
+              <span class="place__en">DUJIANGYAN</span>
+            </div>
+            <div class="place__body">
+              <div class="place__meta"><span>都江堰市</span><span>世界遗产</span></div>
+              <h3>都江堰</h3>
+              <p>两千多年前的水利奇迹，至今仍在灌溉成都平原。一条岷江被温柔分流，也分出了“天府之国”。</p>
+              <span class="place__tag">仍在工作的古老工程</span>
+            </div>
+          </article>
+
+          <article class="place">
+            <div class="place__art">
+              <svg viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+                <defs>
+                  <linearGradient id="qingSky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#22322b"/><stop offset="1" stop-color="#080d0a"/></linearGradient>
+                  <linearGradient id="qingMist" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#c4d1c4" stop-opacity="0"/><stop offset=".5" stop-color="#c4d1c4" stop-opacity=".3"/><stop offset="1" stop-color="#c4d1c4" stop-opacity="0"/></linearGradient>
+                </defs>
+                <rect width="400" height="500" fill="url(#qingSky)"/>
+                <circle cx="86" cy="86" r="30" fill="#dfd5b8" opacity=".45"/>
+                <path d="M0 300l82-110 60 56 54-100 64 96 48-54 82 80 40-40v172H0z" fill="#14221c"/>
+                <path d="M0 360l90-90 62 48 66-76 60 70 56-40 66 58v170H0z" fill="#0c1511"/>
+                <rect y="230" width="400" height="26" fill="url(#qingMist)"/>
+                <rect y="322" width="400" height="18" fill="url(#qingMist)" opacity=".8"/>
+                <path d="M0 452l92-62 68 32 72-40 72 34 96-50v134H0z" fill="#080d0a"/>
+                <path d="M156 500V408h88v92z" fill="#1d1510"/>
+                <path d="M134 414h132l-20-24h-92z" fill="#8a392b"/>
+                <path d="M156 390h88v12h-88z" fill="#b3503a"/>
+                <path d="M170 436h60" stroke="#d8bd8a" stroke-width="1" opacity=".4"/>
+                <g stroke="#5f7b5b" stroke-width="3" opacity=".8"><path d="M56 500V350M338 500V330M376 500V370"/></g>
+                <g fill="#7f9877" opacity=".7"><path d="M56 390q-36-12-48-38 32 2 48 26zM56 434q34-16 44-44-30 4-44 30zM338 368q-40-14-52-44 36 2 52 30zM338 412q38-18 48-48-32 4-48 32z"/></g>
+                <path d="M0 478h400" stroke="#c4d1c4" stroke-width="1" opacity=".14"/>
+              </svg>
+              <span class="place__badge">08</span>
+              <span class="place__en">QINGCHENG MOUNTAIN</span>
+            </div>
+            <div class="place__body">
+              <div class="place__meta"><span>都江堰市</span><span>道教名山</span></div>
+              <h3>青城山</h3>
+              <p>“青城天下幽。”道观藏在苍翠之间，一场山雨就是半日清闲。成都人的周末，常常从这里开始。</p>
+              <span class="place__tag">山中来客</span>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="rail-foot">
+          <div class="rail-progress" aria-hidden="true"><span id="railBar"></span></div>
+          <p><span>拖动 / 滑动探索</span><b id="railCount">01 / 08</b></p>
+          <div class="rail-btns">
+            <button type="button" id="railPrev" aria-label="上一个地标"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
+            <button type="button" id="railNext" aria-label="下一个地标"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03 Flavor -->
+    <section class="section flavor" id="flavor">
+      <div class="container">
+        <header class="section-head">
+          <p class="kicker" data-reveal><span>03</span><i></i>人间风味<small>FLAVOR</small></p>
+          <h2 class="section-title" data-reveal style="--delay:.08s">一菜一格<br><em>百菜百味</em></h2>
+          <p class="section-note" data-reveal style="--delay:.16s">“世界美食之都”从不只有辣。麻辣、咸鲜、椒麻、鱼香、糖醋、怪味，二十四种味型才是川菜的底牌。</p>
+        </header>
+
+        <div class="flavor__layout">
+          <div class="flavor__visual" id="flavorVisual" data-reveal>
+            <span class="flavor__mini">TASTE OF CHENGDU</span>
+            <div class="flavor__plate" aria-hidden="true">
+              <span class="flavor__halo"></span>
+              <span class="flavor__char" id="flavorChar">辣</span>
+              <span class="flavor__steam flavor__steam--1"></span>
+              <span class="flavor__steam flavor__steam--2"></span>
+              <span class="flavor__steam flavor__steam--3"></span>
+              <span class="flavor__dot flavor__dot--1"></span>
+              <span class="flavor__dot flavor__dot--2"></span>
+              <span class="flavor__dot flavor__dot--3"></span>
+            </div>
+            <div class="flavor__caption">
+              <span id="flavorLabel">麻辣</span>
+              <small id="flavorEn">MA LA · THE SOUL OF SICHUAN</small>
+            </div>
+            <div class="flavor__note">一锅红汤，煮开成都人的江湖。</div>
+          </div>
+
+          <div class="flavor__list" data-reveal style="--delay:.1s">
+            <div class="flavor__list-head"><span>今日菜单</span><span>TASTE MENU</span></div>
+            <button class="dish is-active" type="button" data-char="辣" data-label="麻辣" data-en="MA LA · THE SOUL OF SICHUAN" data-tone="fire" aria-pressed="true">
+              <span class="dish__no">01</span>
+              <span class="dish__name">火锅<small>HOTPOT</small></span>
+              <span class="dish__desc">一锅红汤，毛肚七上八下，煮开成都人的江湖。</span>
+              <span class="dish__heat" aria-label="辣度 3 级"><i class="on"></i><i class="on"></i><i class="on"></i></span>
+            </button>
+            <button class="dish" type="button" data-char="麻" data-label="椒麻" data-en="NUMBING · STREET SIDE SKEWERS" data-tone="ember" aria-pressed="false">
+              <span class="dish__no">02</span>
+              <span class="dish__name">串串香<small>SKEWERS</small></span>
+              <span class="dish__desc">竹签串起的市井烟火，一把签子，一桌朋友。</span>
+              <span class="dish__heat" aria-label="辣度 3 级"><i class="on"></i><i class="on"></i><i class="on"></i></span>
+            </button>
+            <button class="dish" type="button" data-char="鲜" data-label="咸鲜" data-en="SAVORY · DAN DAN NOODLES" data-tone="amber" aria-pressed="false">
+              <span class="dish__no">03</span>
+              <span class="dish__name">担担面<small>DAN DAN NOODLES</small></span>
+              <span class="dish__desc">一挑一拌，肉臊、芽菜与红油在碗底相逢。</span>
+              <span class="dish__heat" aria-label="辣度 2 级"><i class="on"></i><i class="on"></i><i></i></span>
+            </button>
+            <button class="dish" type="button" data-char="香" data-label="醇香" data-en="DELICATE · WONTON SOUP" data-tone="jade" aria-pressed="false">
+              <span class="dish__no">04</span>
+              <span class="dish__name">龙抄手<small>WONTON</small></span>
+              <span class="dish__desc">皮薄馅嫩，一勺清汤，是麻辣江湖里的温柔乡。</span>
+              <span class="dish__heat" aria-label="辣度 1 级"><i class="on"></i><i></i><i></i></span>
+            </button>
+            <button class="dish" type="button" data-char="甜" data-label="甜辣" data-en="SWEET &amp; SPICY · DUMPLINGS" data-tone="rose" aria-pressed="false">
+              <span class="dish__no">05</span>
+              <span class="dish__name">钟水饺<small>DUMPLINGS</small></span>
+              <span class="dish__desc">红油微甜，蒜香回甘，成都人把辣也调得温柔。</span>
+              <span class="dish__heat" aria-label="辣度 2 级"><i class="on"></i><i class="on"></i><i></i></span>
+            </button>
+            <button class="dish" type="button" data-char="酥" data-label="蛋香" data-en="CRISPY · EGG CAKE" data-tone="cream" aria-pressed="false">
+              <span class="dish__no">06</span>
+              <span class="dish__name">蛋烘糕<small>EGG CAKE</small></span>
+              <span class="dish__desc">铜锅上烘出的金黄小饼，甜咸皆宜，街头的童年。</span>
+              <span class="dish__heat" aria-label="辣度 0 级"><i></i><i></i><i></i></span>
+            </button>
+            <p class="flavor__hint">选择一道菜，尝尝成都的味觉性格 <span aria-hidden="true">↗</span></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 04 Life -->
+    <section class="life" id="life">
+      <div class="life__bg" aria-hidden="true">
+        <span class="life__char-bg" data-parallax="0.08">慢</span>
+        <span class="life__bamboo life__bamboo--1"></span>
+        <span class="life__bamboo life__bamboo--2"></span>
+      </div>
+      <div class="container life__inner">
+        <header class="section-head section-head--dark">
+          <p class="kicker" data-reveal><span>04</span><i></i>成都生活<small>LIFESTYLE</small></p>
+          <h2 class="section-title" data-reveal style="--delay:.08s">慢下来<br><em>才算到过成都</em></h2>
+          <p class="section-note" data-reveal style="--delay:.16s">茶馆、竹椅、龙门阵。成都人把“浪费时间”变成了一门正经学问。</p>
+        </header>
+
+        <div class="hours">
+          <article class="hour" data-reveal>
+            <div class="hour__top"><span>06:30</span><i>晨</i></div>
+            <h3>一碗面叫醒清晨</h3>
+            <p>红油抄手、担担面、肥肠粉。成都人的一天，从一点麻辣开始。</p>
+            <span class="hour__tag">早餐 · 市井</span>
+          </article>
+          <article class="hour" data-reveal style="--delay:.06s">
+            <div class="hour__top"><span>09:00</span><i>萌</i></div>
+            <h3>去看熊猫吃早餐</h3>
+            <p>清晨是大熊猫最活跃的时候，竹林里全是咀嚼声和翻滚的小身体。</p>
+            <span class="hour__tag">熊猫 · 清晨</span>
+          </article>
+          <article class="hour" data-reveal style="--delay:.12s">
+            <div class="hour__top"><span>14:00</span><i>闲</i></div>
+            <h3>人民公园的竹椅</h3>
+            <p>一杯盖碗茶，一碟瓜子，龙门阵可以摆一下午。时间在这里没有 KPI。</p>
+            <span class="hour__tag">茶馆 · 慢生活</span>
+          </article>
+          <article class="hour" data-reveal style="--delay:.18s">
+            <div class="hour__top"><span>18:30</span><i>辣</i></div>
+            <h3>火锅沸腾的时候</h3>
+            <p>红汤翻滚，毛肚七上八下，夜色正式入场。没有什么是一顿火锅解决不了的。</p>
+            <span class="hour__tag">火锅 · 夜宴</span>
+          </article>
+          <article class="hour" data-reveal style="--delay:.24s">
+            <div class="hour__top"><span>20:30</span><i>戏</i></div>
+            <h3>川剧变脸，一瞬千面</h3>
+            <p>锣鼓点急，折扇一开一合，掌声与茶香一起落在老戏台。</p>
+            <span class="hour__tag">川剧 · 非遗</span>
+          </article>
+          <article class="hour" data-reveal style="--delay:.3s">
+            <div class="hour__top"><span>23:00</span><i>夜</i></div>
+            <h3>九眼桥的最后一杯</h3>
+            <p>锦江灯火铺开，酒吧与夜市刚刚热闹。成都的夜，比白天更长。</p>
+            <span class="hour__tag">夜游 · 锦江</span>
+          </article>
+        </div>
+
+        <div class="life__quote" data-reveal>
+          <p>“成都的慢，不是停滞，<br>是把生活过得<em>具体</em>。”</p>
+          <span>—— 成都十二时辰</span>
+        </div>
+
+        <div class="night-audio" id="nightAudio" data-reveal>
+          <div class="night-audio__disc" aria-hidden="true">
+            <span class="night-audio__disc-ring"></span>
+            <span class="night-audio__disc-label"><b>明月</b><small>CHENGDU<br>NIGHT</small></span>
+            <span class="night-audio__disc-pin"></span>
+          </div>
+          <div class="night-audio__body">
+            <p class="night-audio__kicker">CITY SOUNDTRACK <i></i> 城市夜听</p>
+            <div class="night-audio__title-row">
+              <h3>明月几时有</h3>
+              <span>蔡琴 · 苏轼《水调歌头》</span>
+            </div>
+            <p class="night-audio__lyric">“人有悲欢离合，月有阴晴圆缺，此事古难全。”</p>
+            <div class="night-audio__controls">
+              <button class="audio-play" type="button" data-audio-toggle aria-pressed="false" aria-label="播放蔡琴《明月几时有》">
+                <span class="audio-play__icon" aria-hidden="true"><span class="icon-play"></span><span class="icon-pause"></span></span>
+                <span class="audio-play__text">播放音乐</span>
+              </button>
+              <div class="audio-track">
+                <input class="audio-range" type="range" min="0" max="100" step="0.1" value="0" data-audio-range aria-label="《明月几时有》播放进度">
+                <div class="audio-track__meta"><span data-audio-current>00:00</span><span data-audio-duration>--:--</span></div>
+              </div>
+            </div>
+          </div>
+          <span class="night-audio__source">本地音频 · 蔡琴明月几时有.mp3</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 05 Journey -->
+    <section class="section journey" id="journey">
+      <div class="container">
+        <header class="section-head">
+          <p class="kicker" data-reveal><span>05</span><i></i>行程灵感<small>JOURNEY</small></p>
+          <h2 class="section-title" data-reveal style="--delay:.08s">把成都<br><em>走成一条线</em></h2>
+          <p class="section-note" data-reveal style="--delay:.16s">不必赶路。选一条喜欢的节奏，把街巷、熊猫与山水串成自己的成都。</p>
+        </header>
+
+        <div class="journey__shell" data-reveal>
+          <div class="tabs" role="tablist" aria-label="行程天数选择">
+            <button class="tab is-active" id="tab-1" role="tab" aria-selected="true" aria-controls="plan-1" tabindex="0" data-tab="1"><span>01</span>一日 · 老城慢游<small>1 DAY</small></button>
+            <button class="tab" id="tab-2" role="tab" aria-selected="false" aria-controls="plan-2" tabindex="-1" data-tab="2"><span>02</span>两日 · 熊猫与潮流<small>2 DAYS</small></button>
+            <button class="tab" id="tab-3" role="tab" aria-selected="false" aria-controls="plan-3" tabindex="-1" data-tab="3"><span>03</span>三日 · 成都深度<small>3 DAYS</small></button>
+          </div>
+
+          <div class="plan is-active" id="plan-1" role="tabpanel" aria-labelledby="tab-1">
+            <aside class="plan__aside">
+              <span class="plan__route">ROUTE 01</span>
+              <h3>老城慢游</h3>
+              <p>一日之内，从茶馆到锦江，走进成都老城的日常肌理。</p>
+              <ul class="plan__facts"><li>步行 + 地铁</li><li>人文 / 美食</li><li>约 12 km</li></ul>
+            </aside>
+            <div class="plan__days">
+              <section class="day">
+                <header class="day__head"><span>DAY 01</span><h4>从一碗茶开始</h4></header>
+                <div class="stops">
+                  <div class="stop"><time>08:30</time><div><h5>人民公园 · 鹤鸣茶社</h5><p>盖碗茶配钟水饺，先学会成都的慢。</p></div><span>早茶</span></div>
+                  <div class="stop"><time>10:30</time><div><h5>宽窄巷子</h5><p>青砖黛瓦间散步，顺手买一份蛋烘糕。</p></div><span>街巷</span></div>
+                  <div class="stop"><time>13:00</time><div><h5>杜甫草堂</h5><p>竹影红墙，读一首《春夜喜雨》。</p></div><span>人文</span></div>
+                  <div class="stop"><time>16:00</time><div><h5>武侯祠 · 锦里</h5><p>红墙竹影之后，等锦里的灯笼亮起。</p></div><span>三国</span></div>
+                  <div class="stop"><time>19:30</time><div><h5>九眼桥 · 锦江夜游</h5><p>灯火与晚风，为这一天收尾。</p></div><span>夜游</span></div>
+                </div>
+              </section>
+            </div>
+          </div>
+
+          <div class="plan" id="plan-2" role="tabpanel" aria-labelledby="tab-2" hidden>
+            <aside class="plan__aside">
+              <span class="plan__route">ROUTE 02</span>
+              <h3>熊猫与潮流</h3>
+              <p>两天时间，把最萌的成都和最潮的成都一起收入行程。</p>
+              <ul class="plan__facts"><li>地铁 + 打车</li><li>熊猫 / 潮流</li><li>约 25 km</li></ul>
+            </aside>
+            <div class="plan__days">
+              <section class="day">
+                <header class="day__head"><span>DAY 01</span><h4>老城与夜色</h4></header>
+                <div class="stops">
+                  <div class="stop"><time>09:00</time><div><h5>人民公园 · 宽窄巷子</h5><p>一杯茶开场，再钻进老巷子的烟火里。</p></div><span>早茶</span></div>
+                  <div class="stop"><time>13:30</time><div><h5>武侯祠 · 锦里</h5><p>红墙竹影与三国故事，傍晚灯笼亮起。</p></div><span>人文</span></div>
+                  <div class="stop"><time>19:30</time><div><h5>九眼桥 · 锦江</h5><p>沿锦江散步，看成都的夜慢慢铺开。</p></div><span>夜游</span></div>
+                </div>
+              </section>
+              <section class="day">
+                <header class="day__head"><span>DAY 02</span><h4>熊猫与潮流</h4></header>
+                <div class="stops">
+                  <div class="stop"><time>07:30</time><div><h5>大熊猫繁育研究基地</h5><p>赶早看团子吃早餐，十点前最活跃。</p></div><span>熊猫</span></div>
+                  <div class="stop"><time>12:30</time><div><h5>太古里 · IFS</h5><p>在楼顶熊猫下打卡，逛一逛方所与街巷。</p></div><span>潮流</span></div>
+                  <div class="stop"><time>16:00</time><div><h5>东郊记忆</h5><p>老厂房改造的创意园区，工业感与咖啡香。</p></div><span>文创</span></div>
+                  <div class="stop"><time>19:00</time><div><h5>建设路小吃街</h5><p>用一桌小吃结束两天的成都。</p></div><span>宵夜</span></div>
+                </div>
+              </section>
+            </div>
+          </div>
+
+          <div class="plan" id="plan-3" role="tabpanel" aria-labelledby="tab-3" hidden>
+            <aside class="plan__aside">
+              <span class="plan__route">ROUTE 03</span>
+              <h3>成都深度</h3>
+              <p>三天时间，从市井走向山水，把成都的慢与远都走一遍。</p>
+              <ul class="plan__facts"><li>地铁 + 城际</li><li>人文 / 山水</li><li>约 80 km</li></ul>
+            </aside>
+            <div class="plan__days">
+              <section class="day">
+                <header class="day__head"><span>DAY 01</span><h4>老城烟火</h4></header>
+                <div class="stops">
+                  <div class="stop"><time>09:00</time><div><h5>人民公园 · 宽窄巷子</h5><p>从盖碗茶开始，走进老成都的街巷。</p></div><span>早茶</span></div>
+                  <div class="stop"><time>14:00</time><div><h5>杜甫草堂 · 武侯祠</h5><p>一半诗意，一半英雄。</p></div><span>人文</span></div>
+                  <div class="stop"><time>19:30</time><div><h5>锦里 · 九眼桥</h5><p>灯笼、川剧与锦江夜色。</p></div><span>夜游</span></div>
+                </div>
+              </section>
+              <section class="day">
+                <header class="day__head"><span>DAY 02</span><h4>熊猫与潮流</h4></header>
+                <div class="stops">
+                  <div class="stop"><time>07:30</time><div><h5>大熊猫基地</h5><p>清晨的竹林，团子的早餐时间。</p></div><span>熊猫</span></div>
+                  <div class="stop"><time>13:00</time><div><h5>太古里 · 春熙路</h5><p>在 IFS 熊猫下喝一杯咖啡。</p></div><span>潮流</span></div>
+                  <div class="stop"><time>16:30</time><div><h5>东郊记忆</h5><p>老厂房里的新成都。</p></div><span>文创</span></div>
+                </div>
+              </section>
+              <section class="day">
+                <header class="day__head"><span>DAY 03</span><h4>山水之间</h4></header>
+                <div class="stops">
+                  <div class="stop"><time>08:00</time><div><h5>都江堰</h5><p>看岷江被温柔分流，两千年仍在灌溉。</p></div><span>世界遗产</span></div>
+                  <div class="stop"><time>13:30</time><div><h5>青城山</h5><p>“青城天下幽”，在山雾里走一段石阶。</p></div><span>道教名山</span></div>
+                  <div class="stop"><time>18:00</time><div><h5>返程 · 成都</h5><p>带一身山气回城，旅程刚好。</p></div><span>返程</span></div>
+                </div>
+              </section>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 06 Guide -->
+    <section class="section guide" id="guide">
+      <div class="container">
+        <header class="section-head">
+          <p class="kicker" data-reveal><span>06</span><i></i>实用指南<small>GUIDE</small></p>
+          <h2 class="section-title" data-reveal style="--delay:.08s">出发之前<br><em>你需要知道的</em></h2>
+          <p class="section-note" data-reveal style="--delay:.16s">两座机场、一张地铁图，和一点面对麻辣的勇气。其余的，交给成都。</p>
+        </header>
+
+        <div class="guide__grid">
+          <article class="guide-card" data-tilt data-reveal>
+            <div class="guide-card__top"><span>01</span><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M3 19l13-5 9-10 4 1-5 10 5 2-1 4-7-1-7 5-4-1 4-6-6 2z"/></svg></div>
+            <h3>抵达</h3>
+            <p>成都拥有天府（TFU）与双流（CTU）两座国际机场；高铁直达重庆约 1 小时，西安约 3 小时。</p>
+            <ul><li>机场地铁 18 号线 / 10 号线进城</li><li>成都东站、成都南站均有地铁接驳</li></ul>
+          </article>
+          <article class="guide-card" data-tilt data-reveal style="--delay:.06s">
+            <div class="guide-card__top"><span>02</span><svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="11"/><path d="M5 16h22M16 5c4 4 4 18 0 22M16 5c-4 4-4 18 0 22"/></svg></div>
+            <h3>出行</h3>
+            <p>地铁覆盖主要景点，扫码即可乘车。市区骑行友好，短距离不妨扫一辆单车。</p>
+            <ul><li>去都江堰、青城山可从犀浦站乘城际铁路</li><li>早晚高峰建议避开天府广场换乘</li></ul>
+          </article>
+          <article class="guide-card" data-tilt data-reveal style="--delay:.12s">
+            <div class="guide-card__top"><span>03</span><svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="6"/><path d="M16 2v4M16 26v4M2 16h4M26 16h4M6 6l3 3M23 23l3 3M26 6l-3 3M9 23l-3 3"/></svg></div>
+            <h3>时节</h3>
+            <p>3–5 月与 9–11 月最舒适。夏季湿热多雨，冬季阴冷，但茶馆与火锅四季皆宜。</p>
+            <ul><li>看熊猫请赶早，7:30–10:00 最活跃</li><li>山区多雨，备一件轻便雨衣</li></ul>
+          </article>
+          <article class="guide-card" data-tilt data-reveal style="--delay:.18s">
+            <div class="guide-card__top"><span>04</span><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M8 5h16v22l-8-5-8 5z"/><path d="M12 11h8M12 16h5"/></svg></div>
+            <h3>贴士</h3>
+            <p>火锅“微辣”也可能超出预期，可以先点鸳鸯锅。茶馆按杯计费，通常可以无限续水。</p>
+            <ul><li>热门景区建议提前预约</li><li>随身带伞，成都的雨说来就来</li></ul>
+          </article>
+        </div>
+
+        <div class="dialect">
+          <div class="dialect__head" data-reveal>
+            <p class="kicker"><span>07</span><i></i>成都话<small>LOCAL TALK</small></p>
+            <h3>学两句成都话<br><em>听懂这座城市的松弛感</em></h3>
+            <p>不必标准，敢开口就对了。</p>
+          </div>
+          <div class="dialect__cards">
+            <button class="word" type="button" aria-pressed="false" data-reveal>
+              <span class="word__inner">
+                <span class="word__front"><small>01</small><strong>巴适</strong><em>bā shì</em><i>形容词</i></span>
+                <span class="word__back"><b>舒服、妥帖</b><span>这顿火锅，巴适得板！</span></span>
+              </span>
+            </button>
+            <button class="word" type="button" aria-pressed="false" data-reveal style="--delay:.06s">
+              <span class="word__inner">
+                <span class="word__front"><small>02</small><strong>安逸</strong><em>ān yì</em><i>形容词</i></span>
+                <span class="word__back"><b>惬意、满足</b><span>在河边喝茶，太安逸了。</span></span>
+              </span>
+            </button>
+            <button class="word" type="button" aria-pressed="false" data-reveal style="--delay:.12s">
+              <span class="word__inner">
+                <span class="word__front"><small>03</small><strong>摆龙门阵</strong><em>bǎi lóng mén zhèn</em><i>动词</i></span>
+                <span class="word__back"><b>聊天、闲谈</b><span>走，找个茶馆摆龙门阵。</span></span>
+              </span>
+            </button>
+            <button class="word" type="button" aria-pressed="false" data-reveal style="--delay:.18s">
+              <span class="word__inner">
+                <span class="word__front"><small>04</small><strong>雄起</strong><em>xióng qǐ</em><i>叹词</i></span>
+                <span class="word__back"><b>加油、顶住</b><span>成都队，雄起！</span></span>
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Outro -->
+    <section class="outro" id="outro">
+      <div class="outro__glow" aria-hidden="true"></div>
+      <div class="container outro__inner">
+        <div class="outro__copy" data-reveal>
+          <p class="outro__eyebrow">NEXT STOP · CHENGDU</p>
+          <h2>下一站，<em>成都</em></h2>
+          <p class="outro__text">把行程交给好奇心，把时间交给茶馆。<br>成都，等你来慢下来。</p>
+          <div class="outro__actions">
+            <a class="btn btn--solid magnetic" href="#cinema" data-play-film><span>观看城市影像</span><i aria-hidden="true">▶</i></a>
+            <a class="btn btn--ghost magnetic" href="#journey"><span>重新规划行程</span><i aria-hidden="true">↺</i></a>
+          </div>
+        </div>
+        <div class="outro__stamp" aria-hidden="true">
+          <svg viewBox="0 0 300 300">
+            <defs><path id="outroRing" d="M150,150 m-124,0 a124,124 0 1,1 248,0 a124,124 0 1,1 -248,0"/></defs>
+            <text><textPath href="#outroRing">CHENGDU · TIANFU · PARK CITY · 成都 · 蓉城 · </textPath></text>
+          </svg>
+          <span>蓉</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__top">
+        <a class="brand brand--footer" href="#top" aria-label="返回顶部">
+          <span class="brand__seal">蓉</span>
+          <span class="brand__text"><b>CHENGDU</b><small>成都 · 天府之国</small></span>
+        </a>
+        <nav class="footer__nav" aria-label="页脚导航">
+          <a href="#about">城市印象</a><a href="#landmarks">城市地标</a><a href="#flavor">人间风味</a><a href="#life">成都生活</a><a href="#journey">行程灵感</a><a href="#guide">实用指南</a>
+        </nav>
+        <a class="footer__top-btn" href="#top" aria-label="回到顶部">回到顶部 <i aria-hidden="true">↑</i></a>
+      </div>
+      <div class="footer__giant" aria-hidden="true"><span>成</span><span>都</span></div>
+      <div class="footer__bottom">
+        <span>© 2026 CHENGDU CITY GUIDE</span>
+        <span>影像素材 / 本地视频 cd1.mp4</span>
+        <span>30.67°N · 104.06°E</span>
+        <span>天府之国 · 蓉城</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- City music -->
+  <audio id="cityMusic" src="蔡琴明月几时有.mp3" preload="metadata" loop aria-label="蔡琴《明月几时有》"></audio>
+
+  <div class="mini-player" id="miniPlayer" aria-hidden="true">
+    <button class="mini-player__disc" type="button" data-audio-toggle aria-pressed="false" aria-label="播放城市音乐：蔡琴《明月几时有》">
+      <span class="mini-player__vinyl" aria-hidden="true"><span>蓉</span></span>
+      <span class="mini-player__state" aria-hidden="true"><span class="icon-play"></span><span class="icon-pause"></span></span>
+    </button>
+    <div class="mini-player__info">
+      <b>明月几时有</b>
+      <small>蔡琴 · 城市夜听</small>
+      <div class="mini-player__bar"><span data-audio-bar></span></div>
+    </div>
+    <span class="mini-player__time" data-audio-current>00:00</span>
+    <button class="mini-player__jump" type="button" data-music-jump aria-label="回到城市夜听">↑</button>
+    <button class="mini-player__close" type="button" id="miniClose" aria-label="收起音乐控制条"><span></span><span></span></button>
+  </div>
+
+  <script src="js/main.js" defer></script>
+</body>
+</html>

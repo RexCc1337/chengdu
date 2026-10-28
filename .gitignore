@@ -1,0 +1,9 @@
+﻿# 本地媒体文件（体积过大，通过本地预览 / CDN 加载）
+cd1.mp4
+蔡琴明月几时有.mp3
+
+# 系统与编辑器
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
